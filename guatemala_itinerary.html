@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jain Family · Guatemala 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --jungle: #1a3a2a;
+    --moss: #2d5a3d;
+    --leaf: #4a8c5c;
+    --lime: #7ec850;
+    --gold: #e8a32e;
+    --terracotta: #c9603a;
+    --cream: #fdf6ec;
+    --parchment: #f5e9d0;
+    --text: #1c2b1e;
+    --muted: #6b7c6d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--jungle);
+    min-height: 280px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 48px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0 Q60 20 40 40 Q20 60 40 80 Q60 60 40 40 Q20 20 40 0Z' fill='%232d5a3d' opacity='.4'/%3E%3C/svg%3E") repeat;
+    opacity: 0.3;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .hero-sub {
+    color: rgba(253,246,236,0.7);
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .hero-deco {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 120px;
+    opacity: 0.07;
+  }
+
+  /* TRIP SUMMARY BAR */
+  .summary-bar {
+    background: var(--gold);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .summary-item {
+    flex: 1;
+    min-width: 160px;
+    padding: 16px 24px;
+    border-right: 1px solid rgba(255,255,255,0.3);
+    text-align: center;
+  }
+
+  .summary-item:last-child { border-right: none; }
+
+  .summary-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--jungle);
+    opacity: 0.7;
+    margin-bottom: 4px;
+  }
+
+  .summary-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: var(--jungle);
+    font-weight: 700;
+  }
+
+  /* PRACTICAL TIPS */
+  .tips-bar {
+    background: var(--moss);
+    padding: 14px 48px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .tip-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(253,246,236,0.9);
+    font-size: 13px;
+  }
+
+  .tip-icon { font-size: 16px; }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  /* PHASE / DESTINATION SECTIONS */
+  .phase {
+    margin-bottom: 56px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--parchment);
+  }
+
+  .phase-number {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .phase-1 .phase-number { background: var(--terracotta); color: white; }
+  .phase-2 .phase-number { background: var(--moss); color: white; }
+  .phase-3 .phase-number { background: var(--terracotta); color: white; }
+
+  .phase-meta {}
+  .phase-location {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: var(--jungle);
+    margin-bottom: 4px;
+  }
+
+  .phase-dates {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .phase-hotel {
+    font-size: 13px;
+    color: var(--leaf);
+    margin-top: 4px;
+  }
+
+  .phase-hotel a { color: var(--leaf); text-decoration: none; border-bottom: 1px dotted var(--leaf); }
+  .phase-hotel a:hover { color: var(--moss); }
+
+  /* DAY CARDS */
+  .days-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .day-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e8ede9;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .day-card:hover { box-shadow: 0 6px 24px rgba(26,58,42,0.1); }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--parchment);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .day-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--jungle);
+    flex: 1;
+  }
+
+  .day-emoji { font-size: 20px; }
+
+  .day-toggle {
+    color: var(--muted);
+    font-size: 14px;
+    transition: transform 0.2s;
+  }
+
+  .day-card.open .day-toggle { transform: rotate(180deg); }
+
+  .day-body {
+    display: none;
+    padding: 20px;
+  }
+
+  .day-card.open .day-body { display: block; }
+
+  /* ACTIVITIES */
+  .activities { display: flex; flex-direction: column; gap: 12px; }
+
+  .activity {
+    display: flex;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 8px;
+    background: var(--cream);
+    border-left: 3px solid transparent;
+    transition: background 0.15s;
+  }
+
+  .activity:hover { background: #f0f5f1; }
+
+  .activity.culture { border-left-color: var(--terracotta); }
+  .activity.relaxation { border-left-color: var(--moss); }
+  .activity.food { border-left-color: var(--gold); }
+  .activity.adventure { border-left-color: var(--leaf); }
+
+  .activity-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+
+  .activity-content {}
+  .activity-name {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--jungle);
+    margin-bottom: 3px;
+  }
+
+  .activity-name a {
+    color: var(--jungle);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+
+  .activity-name a:hover { border-color: var(--leaf); color: var(--moss); }
+
+  .activity-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .activity-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .tag-culture { background: #fce9e4; color: var(--terracotta); }
+  .tag-relax { background: #e4f0e8; color: var(--moss); }
+  .tag-food { background: #fdf3e0; color: #9c6e1a; }
+  .tag-adventure { background: #e8f4ee; color: var(--leaf); }
+  .tag-kids { background: #e8f0fd; color: #3a6bc9; }
+
+  /* TRANSPORT CARDS */
+  .transport {
+    background: var(--jungle);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .transport-icon { font-size: 28px; }
+  .transport-info {}
+  .transport-title { font-weight: 500; font-size: 14px; margin-bottom: 3px; }
+  .transport-detail { font-size: 12px; color: rgba(253,246,236,0.65); }
+
+  /* FLIGHT CARD */
+  .flight-card {
+    background: linear-gradient(135deg, #1a3a2a, #2d5a3d);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .flight-detail { flex: 1; min-width: 120px; }
+  .flight-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-bottom: 4px; }
+  .flight-value { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+
+  .flight-divider { font-size: 24px; opacity: 0.4; }
+
+  /* SECTION DIVIDER */
+  .phase-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0 40px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .phase-divider::before,
+  .phase-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #d8e5da;
+  }
+
+  /* PRACTICAL SECTION */
+  .practical-section {
+    background: var(--jungle);
+    border-radius: 16px;
+    padding: 32px;
+    color: var(--cream);
+    margin-top: 40px;
+  }
+
+  .practical-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--lime);
+  }
+
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .practical-item {
+    background: rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .practical-item-title {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .practical-item-text {
+    font-size: 13px;
+    color: rgba(253,246,236,0.8);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid #dce8de;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 32px 24px; }
+    .container { padding: 32px 16px; }
+    .tips-bar { padding: 14px 24px; }
+    .flight-card { flex-direction: column; gap: 12px; }
+    .summary-bar { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-deco">🌋</div>
+  <div class="hero-content">
+    <div class="hero-tag">Family Adventure · March–April 2026</div>
+    <h1>Guatemala<br><em>Jain Family</em></h1>
+    <div class="hero-sub">Ripul · Nimisha · Rohan · Niam &nbsp;·&nbsp; 10 days of culture & relaxation</div>
+  </div>
+</div>
+
+<div class="summary-bar">
+  <div class="summary-item">
+    <div class="summary-label">Travelers</div>
+    <div class="summary-value">4 (2 adults + 2 kids)</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-label">Arrive</div>
+    <div class="summary-value">Mar 26 · UA 1902</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-label">Depart</div>
+    <div class="summary-value">Apr 4 · UA 2007</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-label">Antigua</div>
+    <div class="summary-value">Mar 26–29</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-label">Lake Atitlán</div>
+    <div class="summary-value">Mar 29–31</div>
+  </div>
+  <div class="summary-item">
+    <div class="summary-label">Antigua (return)</div>
+    <div class="summary-value">Mar 31–Apr 4</div>
+  </div>
+</div>
+
+<div class="tips-bar">
+  <div class="tip-item"><span class="tip-icon">💵</span> Bring Quetzales (GTQ) — withdraw cash at airport ATM</div>
+  <div class="tip-item"><span class="tip-icon">💧</span> No tap water — bottled/filtered only</div>
+  <div class="tip-item"><span class="tip-icon">🚌</span> Use private shuttles or Uber for transport</div>
+  <div class="tip-item"><span class="tip-icon">🌞</span> Late March = dry season — perfect weather!</div>
+</div>
+
+<div class="container">
+
+  <!-- ==================== PHASE 1: ANTIGUA ==================== -->
+  <div class="phase phase-1">
+    <div class="phase-header">
+      <div class="phase-number">1</div>
+      <div class="phase-meta">
+        <div class="phase-location">Antigua Guatemala</div>
+        <div class="phase-dates">MARCH 26 – 29 &nbsp;·&nbsp; 3 Nights</div>
+        <div class="phase-hotel">🏨 <a href="https://www.goodhotel.co/en/good-hotel-antigua/" target="_blank">The Good Hotel Antigua</a></div>
+      </div>
+    </div>
+
+    <!-- ARRIVAL FLIGHT -->
+    <div class="flight-card">
+      <div class="flight-detail">
+        <div class="flight-label">Flight</div>
+        <div class="flight-value">UA 1902</div>
+      </div>
+      <div class="flight-divider">✈</div>
+      <div class="flight-detail">
+        <div class="flight-label">Arrives</div>
+        <div class="flight-value">6:39 PM · Mar 26</div>
+      </div>
+      <div class="flight-detail">
+        <div class="flight-label">Destination</div>
+        <div class="flight-value">GUA · Guatemala City</div>
+      </div>
+      <div class="flight-detail">
+        <div class="flight-label">To Antigua</div>
+        <div class="flight-value">~45 min · Uber/Private Transfer (~$50)</div>
+      </div>
+    </div>
+
+    <div class="days-grid">
+
+      <!-- Day 1 -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">✈️</div>
+          <div>
+            <div class="day-label">Thursday · March 26</div>
+            <div class="day-title">Arrival Day — Settle in & Evening Stroll</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity culture">
+              <div class="activity-icon">🚗</div>
+              <div class="activity-content">
+                <div class="activity-name">Private Transfer: Airport → Antigua</div>
+                <div class="activity-desc">Book a private shuttle (safer and more comfortable for a family of 4 than Uber). ~45–60 min. Pre-book through your hotel or <a href="https://simoon.tours" target="_blank">Simoon Tours</a>.</div>
+                <div class="activity-tags"><span class="tag tag-kids">Family Tip</span></div>
+              </div>
+            </div>
+            <div class="activity relaxation">
+              <div class="activity-icon">🏨</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.goodhotel.co/en/good-hotel-antigua/" target="_blank">Check In: The Good Hotel Antigua</a></div>
+                <div class="activity-desc">Settle in, freshen up after travel. A good night's sleep — the kids will thank you.</div>
+              </div>
+            </div>
+            <div class="activity food">
+              <div class="activity-icon">🍽️</div>
+              <div class="activity-content">
+                <div class="activity-name">Late Dinner near Parque Central</div>
+                <div class="activity-desc">Grab a casual bite near the hotel. Try <a href="https://maps.app.goo.gl/antigua-parque" target="_blank">the area around Parque Central</a> — plenty of options with outdoor seating. Kids tend to love the open-air plazas.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="day-card open">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">🏛️</div>
+          <div>
+            <div class="day-label">Friday · March 27</div>
+            <div class="day-title">Colonial Antigua — Arches, Chocolate & Markets</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity food">
+              <div class="activity-icon">☕</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.tripadvisor.com/Restaurant_Review-g295366-d808580-Reviews-El_Gran_Cafe-Antigua_Sacatepequez_Department.html" target="_blank">Breakfast at El Gran Café</a></div>
+                <div class="activity-desc">Smooth local coffee and fresh pastries. Walk over to Parque Central right after — great spot for kids to run and explore the central fountain.</div>
+                <div class="activity-tags"><span class="tag tag-food">Breakfast</span><span class="tag tag-kids">Kids Love It</span></div>
+              </div>
+            </div>
+            <div class="activity culture">
+              <div class="activity-icon">🏛️</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.tripadvisor.com/Attraction_Review-g295366-d318199-Reviews-Parque_Central-Antigua_Sacatepequez_Department.html" target="_blank">Parque Central & Santa Catalina Arch</a></div>
+                <div class="activity-desc">The iconic yellow arch framing Volcán de Agua — one of the most photographed spots in Guatemala. Kids love climbing the steps and watching tuk-tuks navigate the cobblestones.</div>
+                <div class="activity-tags"><span class="tag tag-culture">UNESCO Site</span><span class="tag tag-kids">Photo Spot</span></div>
+              </div>
+            </div>
+            <div class="activity culture">
+              <div class="activity-icon">🍫</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://chocomuseo.com/location/antigua-guatemala/" target="_blank">ChocoMuseo — Bean-to-Bar Workshop</a></div>
+                <div class="activity-desc">THE must-do for families in Antigua. Kids (and adults!) grind cacao beans, make their own chocolate bars, and learn about Guatemala's ancient cacao history. Messy and unforgettable — book ahead online.</div>
+                <div class="activity-tags"><span class="tag tag-culture">Cultural</span><span class="tag tag-kids">Kids Favorite</span></div>
+              </div>
+            </div>
+            <div class="activity culture">
+              <div class="activity-icon">🎨</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.tripadvisor.com/Attraction_Review-g295366-d7049090-Reviews-Nim_Po_t-Antigua_Sacatepequez_Department.html" target="_blank">Nim Po't Cultural Center</a></div>
+                <div class="activity-desc">A vibrant Mayan textile center where kids can see and touch traditional Guatemalan weavings, learn about local customs, and even try on Maya costumes. Great for souvenirs too.</div>
+                <div class="activity-tags"><span class="tag tag-culture">Maya Culture</span><span class="tag tag-kids">Interactive</span></div>
+              </div>
+            </div>
+            <div class="activity food">
+              <div class="activity-icon">🍕</div>
+              <div class="activity-content">
+                <div class="activity-name">Dinner: La Familia Sourdough Pizzeria or Masil</div>
+                <div class="activity-desc">La Familia is a local hit with families. Masil (Korean-Guatemalan fusion) is adventurous and delicious — try the chapchae!</div>
+                <div class="activity-tags"><span class="tag tag-food">Dinner</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">⛪</div>
+          <div>
+            <div class="day-label">Saturday · March 28</div>
+            <div class="day-title">Ruins, Farms & Sunset Views</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity culture">
+              <div class="activity-icon">⛪</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.tripadvisor.com/Attraction_Review-g295366-d318207-Reviews-Convento_de_las_Capuchinas-Antigua_Sacatepequez_Department.html" target="_blank">Convent of the Capuchinas Ruins</a></div>
+                <div class="activity-desc">Well-preserved 18th-century ruins to wander through — kids love the cloisters and imagination of what life looked like. Also explore <a href="https://www.casasantodomingo.com.gt/" target="_blank">Casa Santo Domingo museum</a> for crypts, colonial art, and a candle-making museum.</div>
+                <div class="activity-tags"><span class="tag tag-culture">History</span><span class="tag tag-kids">Age 10+</span></div>
+              </div>
+            </div>
+            <div class="activity adventure">
+              <div class="activity-icon">🌄</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.tripadvisor.com/Attraction_Review-g295366-d318206-Reviews-Cerro_de_la_Cruz-Antigua_Sacatepequez_Department.html" target="_blank">Cerro de la Cruz — Hilltop Views</a></div>
+                <div class="activity-desc">Short hike up to the cross for panoramic views of Antigua and Volcán de Agua. Best in the morning light. The kids will feel like they conquered the city.</div>
+                <div class="activity-tags"><span class="tag tag-adventure">Light Hike</span><span class="tag tag-kids">Great Views</span></div>
+              </div>
+            </div>
+            <div class="activity relaxation">
+              <div class="activity-icon">🌿</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://lacafetazotea.com/" target="_blank">La Finca La Azotea</a></div>
+                <div class="activity-desc">A 15-min tuk-tuk ride from central Antigua — organic farm with a playground, zip line, mini golf, horseback riding, and a coffee tour. Let the kids go wild while you sip local coffee. Small entrance fee (~30Q adults, 10Q kids).</div>
+                <div class="activity-tags"><span class="tag tag-kids">Kids Favorite</span><span class="tag tag-relax">Relaxed Vibe</span><span class="tag tag-adventure">Outdoor</span></div>
+              </div>
+            </div>
+            <div class="activity food">
+              <div class="activity-icon">🛍️</div>
+              <div class="activity-content">
+                <div class="activity-name">Mercado de Artesanías — Souvenir Shopping</div>
+                <div class="activity-desc">The main artisan market behind the bus station has textiles, Mayan crafts, hats, jade, and more. Bring small bills in Quetzales and enjoy the bargaining!</div>
+                <div class="activity-tags"><span class="tag tag-culture">Local Market</span><span class="tag tag-kids">Interactive</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 4 morning -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">🛶</div>
+          <div>
+            <div class="day-label">Sunday · March 29</div>
+            <div class="day-title">Morning in Antigua → Transfer to Lake Atitlán</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity food">
+              <div class="activity-icon">🌾</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.caobafarms.com/" target="_blank">Breakfast at Caoba Farms</a></div>
+                <div class="activity-desc">Organic farm-to-table breakfast with a playground for the kids. Fresh produce, vegetarian options, beautiful gardens. A peaceful send-off before the scenic drive.</div>
+                <div class="activity-tags"><span class="tag tag-food">Breakfast</span><span class="tag tag-kids">Playground</span></div>
+              </div>
+            </div>
+            <div class="activity adventure">
+              <div class="activity-icon">🚐</div>
+              <div class="activity-content">
+                <div class="activity-name">Private Shuttle: Antigua → Panajachel (~2.5 hrs)</div>
+                <div class="activity-desc">Book through <a href="https://simoon.tours" target="_blank">Simoon Tours</a> or your hotel (~650Q / ~$84 USD for a private car). The mountain scenery on this drive is stunning. From Pana, take the hotel's private boat to La Casa del Mundo (hotel arranges pickup).</div>
+                <div class="activity-tags"><span class="tag tag-kids">Scenic Ride</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="phase-divider">Lake Atitlán</div>
+
+  <!-- ==================== PHASE 2: LAKE ATITLÁN ==================== -->
+  <div class="phase phase-2">
+    <div class="phase-header">
+      <div class="phase-number">2</div>
+      <div class="phase-meta">
+        <div class="phase-location">Lake Atitlán</div>
+        <div class="phase-dates">MARCH 29 – 31 &nbsp;·&nbsp; 2 Nights</div>
+        <div class="phase-hotel">🏨 <a href="https://lacasadelmundo.com/" target="_blank">La Casa del Mundo</a> — Cliffside, boat-access only</div>
+      </div>
+    </div>
+
+    <div class="days-grid">
+
+      <!-- Day 4 Evening / Day 5 -->
+      <div class="day-card open">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">🌊</div>
+          <div>
+            <div class="day-label">Sunday Evening · March 29</div>
+            <div class="day-title">Arrive at La Casa del Mundo — Cliffside Magic</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity relaxation">
+              <div class="activity-icon">🏊</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://lacasadelmundo.com/" target="_blank">Explore La Casa del Mundo</a></div>
+                <div class="activity-desc">This viral, boat-access-only hotel is built into volcanic cliffs over the lake. Swim in the lake from the balconies, lounge in hammocks, watch the volcano sunset from the terraces. The communal family-style dinner is a highlight — meet travelers from around the world.</div>
+                <div class="activity-tags"><span class="tag tag-relax">Relaxation</span><span class="tag tag-kids">Swimming</span></div>
+              </div>
+            </div>
+            <div class="activity relaxation">
+              <div class="activity-icon">♨️</div>
+              <div class="activity-content">
+                <div class="activity-name">Sunset in the Hot Tub (extra fee)</div>
+                <div class="activity-desc">The cliff-perched hot tub with panoramic volcano views is unforgettable at golden hour. Worth every quetzal.</div>
+                <div class="activity-tags"><span class="tag tag-relax">Adults</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="day-card open">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">⛵</div>
+          <div>
+            <div class="day-label">Monday · March 30</div>
+            <div class="day-title">Village Hopping by Lancha Boat</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity adventure">
+              <div class="activity-icon">🛶</div>
+              <div class="activity-content">
+                <div class="activity-name">Morning Kayak on Lake Atitlán</div>
+                <div class="activity-desc">Rent kayaks directly from the hotel. Go early — by midmorning, winds pick up and the lake gets choppy. The crystal-clear water reflects three volcanoes — one of the most beautiful morning activities imaginable. Kids ages 10 & 12 are perfect for this!</div>
+                <div class="activity-tags"><span class="tag tag-adventure">Outdoor</span><span class="tag tag-kids">Ages 10+</span></div>
+              </div>
+            </div>
+            <div class="activity culture">
+              <div class="activity-icon">🎨</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.tripadvisor.com/Tourism-g3178523-San_Juan_La_Laguna_Solola_Department_Western_Highlands-Vacations.html" target="_blank">San Juan La Laguna — Mural Village</a></div>
+                <div class="activity-desc">Take a lancha (~30 min from hotel) to San Juan, famous for its vivid murals and cooperative art workshops. Browse local weaving co-ops (the women's weaving collectives are kid-friendly and fascinating). Great spot for lunch and local Mayan crafts.</div>
+                <div class="activity-tags"><span class="tag tag-culture">Mayan Village</span><span class="tag tag-kids">Interactive</span></div>
+              </div>
+            </div>
+            <div class="activity culture">
+              <div class="activity-icon">🌺</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.tripadvisor.com/Attraction_Review-g292007-d8764527-Reviews-Mundo_de_Abejas_Mayas-Lake_Atitlan_Solola_Department_Western_Highlands.html" target="_blank">Mundo de Abejas Mayas — Mayan Beekeeping</a></div>
+                <div class="activity-desc">Learn about traditional stingless bee beekeeping — a fascinating Mayan tradition. Taste 25+ honey products. The guides are warm and welcoming, and kids are amazed by the gentle bees. Located in San Juan.</div>
+                <div class="activity-tags"><span class="tag tag-culture">Mayan Culture</span><span class="tag tag-kids">Ages 8+</span></div>
+              </div>
+            </div>
+            <div class="activity relaxation">
+              <div class="activity-icon">🌅</div>
+              <div class="activity-content">
+                <div class="activity-name">Sunset Swim & Hammocks at Casa del Mundo</div>
+                <div class="activity-desc">Return to the hotel by late afternoon for the golden hour. Swing in hammocks on the cliffs, dip in the lake, and watch the sky turn colors over the volcanoes. The communal dinner starts at 7pm — don't miss it.</div>
+                <div class="activity-tags"><span class="tag tag-relax">Relaxation</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 6 Morning (checkout) -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">🌄</div>
+          <div>
+            <div class="day-label">Tuesday Morning · March 31</div>
+            <div class="day-title">Morning Swim → Transfer Back to Antigua</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity adventure">
+              <div class="activity-icon">🌅</div>
+              <div class="activity-content">
+                <div class="activity-name">Sunrise Lake Swim</div>
+                <div class="activity-desc">Wake up early for one final swim in the lake before checkout (usually 11am). The morning is glassy-calm and the light on the volcanoes is spectacular.</div>
+                <div class="activity-tags"><span class="tag tag-relax">Sunrise</span></div>
+              </div>
+            </div>
+            <div class="activity adventure">
+              <div class="activity-icon">🚤</div>
+              <div class="activity-content">
+                <div class="activity-name">Boat → Panajachel → Shuttle to Antigua</div>
+                <div class="activity-desc">Take the public lancha to Panajachel (~25Q/person), then a private shuttle back to Antigua (~2.5 hrs). Check in at <a href="https://www.elconventoantigua.com/" target="_blank">El Convento Boutique Hotel</a> — has incredible reviews, beautifully restored convent.</div>
+                <div class="activity-tags"><span class="tag tag-adventure">Scenic Transfer</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="phase-divider">Back to Antigua</div>
+
+  <!-- ==================== PHASE 3: ANTIGUA RETURN ==================== -->
+  <div class="phase phase-3">
+    <div class="phase-header">
+      <div class="phase-number">3</div>
+      <div class="phase-meta">
+        <div class="phase-location">Antigua Guatemala — Return Stay</div>
+        <div class="phase-dates">MARCH 31 – APRIL 4 &nbsp;·&nbsp; 4 Nights</div>
+        <div class="phase-hotel">🏨 <a href="https://www.elconventoantigua.com/" target="_blank">El Convento Boutique Hotel Antigua</a></div>
+      </div>
+    </div>
+
+    <div class="days-grid">
+
+      <!-- Day 6 Afternoon -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">🏛️</div>
+          <div>
+            <div class="day-label">Tuesday Afternoon · March 31</div>
+            <div class="day-title">Check In & La Merced Church Area</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity culture">
+              <div class="activity-icon">⛪</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.tripadvisor.com/Attraction_Review-g295366-d318205-Reviews-La_Merced_Church-Antigua_Sacatepequez_Department.html" target="_blank">La Merced Church & Fountain</a></div>
+                <div class="activity-desc">The ornate yellow-and-white baroque church facade is stunning. Inside the courtyard: one of the largest colonial fountains in Latin America, shaped like a water lily — with deep Mayan meaning. Kids love the pigeons and the scale of the fountain.</div>
+                <div class="activity-tags"><span class="tag tag-culture">Colonial</span></div>
+              </div>
+            </div>
+            <div class="activity relaxation">
+              <div class="activity-icon">🛁</div>
+              <div class="activity-content">
+                <div class="activity-name">Afternoon Pool Time at El Convento</div>
+                <div class="activity-desc">The hotel is a restored 17th-century convent — pool in the garden courtyard, lush greenery, and peace after the lake journey. Let the kids decompress.</div>
+                <div class="activity-tags"><span class="tag tag-relax">Relaxation</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 7 -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">🏺</div>
+          <div>
+            <div class="day-label">Wednesday · April 1</div>
+            <div class="day-title">Mayan Ruins Day Trip — Iximché</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity adventure">
+              <div class="activity-icon">🏺</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.viator.com/tours/Antigua/Iximche-Mayan-Ruins-Day-Trip-from-Antigua/d646-5299IXIMCH" target="_blank">Day Trip: Iximché Mayan Ruins</a></div>
+                <div class="activity-desc">One of Guatemala's most accessible Mayan ruins — only 1.5 hrs from Antigua. Kids can climb gentle pyramid steps, run across grassy plazas, and if you're lucky, witness a modern Maya ceremony. A guided tour makes it come alive with kid-friendly storytelling. Bring hats and sunscreen — minimal shade!</div>
+                <div class="activity-tags"><span class="tag tag-culture">Ancient Ruins</span><span class="tag tag-adventure">Day Trip</span><span class="tag tag-kids">Ages 8+</span></div>
+              </div>
+            </div>
+            <div class="activity food">
+              <div class="activity-icon">🥘</div>
+              <div class="activity-content">
+                <div class="activity-name">Authentic Guatemalan Cooking Class (Optional)</div>
+                <div class="activity-desc">If you skip Iximché, book a <a href="https://www.viator.com/tours/Antigua/Guatemalan-Cooking-Class/d646-108867P1" target="_blank">family cooking class in Jocotenango</a> (just outside Antigua). Make traditional dishes together — kids love the hands-on mixing. You get to eat what you cook!</div>
+                <div class="activity-tags"><span class="tag tag-food">Cooking</span><span class="tag tag-culture">Cultural</span><span class="tag tag-kids">Interactive</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 8 -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">🌈</div>
+          <div>
+            <div class="day-label">Thursday · April 2</div>
+            <div class="day-title">Chichicastenango Market Day Trip (Optional)</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity culture">
+              <div class="activity-icon">🎪</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.viator.com/tours/Antigua/Chichicastenango-Market/d646-3093CHICHI" target="_blank">Chichicastenango Market</a></div>
+                <div class="activity-desc">One of the most colorful and vibrant indigenous markets in all of Latin America — runs Thursday & Sunday. Textiles, Mayan masks, crafts, flowers, copal incense. The scale and color is overwhelming (in the best way). Best for older kids — busy crowds and a full travel day (~2.5 hrs each way). Bring cash, small bills.</div>
+                <div class="activity-tags"><span class="tag tag-culture">Mayan Market</span><span class="tag tag-kids">Ages 10+</span><span class="tag tag-adventure">Day Trip</span></div>
+              </div>
+            </div>
+            <div class="activity relaxation">
+              <div class="activity-icon">🏊</div>
+              <div class="activity-content">
+                <div class="activity-name">Alternatively: Chill Day in Antigua</div>
+                <div class="activity-desc">If the family needs a rest day, explore the cobblestone streets at your own pace — more chocolate, the jade museum (<a href="https://www.casadeljademuseo.com/" target="_blank">Casa del Jade</a>), and wandering the beautiful ruins of <a href="https://www.tripadvisor.com/Attraction_Review-g295366-d318201-Reviews-Santa_Clara_Convent-Antigua_Sacatepequez_Department.html" target="_blank">Convento Santa Clara</a>. Grab ice cream at Parque Central.</div>
+                <div class="activity-tags"><span class="tag tag-relax">Rest Day</span><span class="tag tag-kids">Flexible</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 9 -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">🌺</div>
+          <div>
+            <div class="day-label">Friday · April 3</div>
+            <div class="day-title">Final Full Day — Slow Morning & Final Treats</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity food">
+              <div class="activity-icon">🥞</div>
+              <div class="activity-content">
+                <div class="activity-name">Lazy Brunch at Brooklyn Pizza Courtyard</div>
+                <div class="activity-desc">A charming courtyard with multiple cafes and restaurants. Grab pupusas, sourdough pizza, and coffee. The cardamom lemonade at Casa del Cardamomo is a must-try (adventurous!).</div>
+                <div class="activity-tags"><span class="tag tag-food">Brunch</span><span class="tag tag-relax">Relaxed</span></div>
+              </div>
+            </div>
+            <div class="activity culture">
+              <div class="activity-icon">🧑‍🎨</div>
+              <div class="activity-content">
+                <div class="activity-name"><a href="https://www.casasantodomingo.com.gt/museos.html" target="_blank">Casa Santo Domingo Museum Complex</a></div>
+                <div class="activity-desc">Multiple museums in a gorgeous colonial setting — art, archaeology, colonial life, and crypts. The ruins of the original convent are hauntingly beautiful. Worth the 55Q entrance fee even if not staying at the hotel.</div>
+                <div class="activity-tags"><span class="tag tag-culture">Museums</span><span class="tag tag-kids">Ages 10+</span></div>
+              </div>
+            </div>
+            <div class="activity food">
+              <div class="activity-icon">🎁</div>
+              <div class="activity-content">
+                <div class="activity-name">Final Souvenir Shopping & Farewell Dinner</div>
+                <div class="activity-desc">Stock up on jade jewelry, weavings, and Guatemalan coffee for gifts. For dinner, treat the family to <a href="https://maps.google.com/?q=Mesón+Panza+Verde+Antigua" target="_blank">Mesón Panza Verde</a> — one of Antigua's finest restaurants in a stunning colonial courtyard. Reserve ahead.</div>
+                <div class="activity-tags"><span class="tag tag-food">Special Dinner</span><span class="tag tag-culture">Shopping</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 10 Departure -->
+      <div class="day-card">
+        <div class="day-header" onclick="toggleDay(this)">
+          <div class="day-emoji">✈️</div>
+          <div>
+            <div class="day-label">Saturday · April 4</div>
+            <div class="day-title">Departure Day — UA 2007 at 12:26 PM</div>
+          </div>
+          <div class="day-toggle">▼</div>
+        </div>
+        <div class="day-body">
+          <div class="activities">
+            <div class="activity food">
+              <div class="activity-icon">☕</div>
+              <div class="activity-content">
+                <div class="activity-name">Quick Breakfast & Hotel Checkout</div>
+                <div class="activity-desc">Checkout from Cacao Boutique Hotel. Grab a final coffee and pastry near Parque Central.</div>
+                <div class="activity-tags"><span class="tag tag-food">Morning</span></div>
+              </div>
+            </div>
+            <div class="activity adventure">
+              <div class="activity-icon">🚐</div>
+              <div class="activity-content">
+                <div class="activity-name">Private Transfer: Antigua → GUA Airport</div>
+                <div class="activity-desc">Depart Antigua by 9:30 AM at the latest for a 12:26 PM flight. ~45–60 min drive + airport security. Pre-book through your hotel. Flight: UA 2007.</div>
+                <div class="activity-tags"><span class="tag tag-kids">Depart 9:30 AM</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== PRACTICAL INFO ==================== -->
+  <div class="practical-section">
+    <h3>📋 Practical Tips for the Jain Family</h3>
+    <div class="practical-grid">
+      <div class="practical-item">
+        <div class="practical-item-title">💰 Money</div>
+        <div class="practical-item-text">Currency: Guatemalan Quetzal (GTQ). ~7.7 GTQ per $1 USD. Withdraw cash at airport ATM. Many places add 5% for cards.</div>
+      </div>
+      <div class="practical-item">
+        <div class="practical-item-title">🚗 Getting Around</div>
+        <div class="practical-item-text">In Antigua: Uber or tuk-tuk. City to city: private shuttle (safest for families). Lake Atitlán: lanchas (public boats, ~25Q/person/ride).</div>
+      </div>
+      <div class="practical-item">
+        <div class="practical-item-title">🌡️ Weather</div>
+        <div class="practical-item-text">Late March = dry season. Antigua ~22°C/72°F. Lake Atitlán slightly cooler with afternoon breezes. Sunscreen is essential!</div>
+      </div>
+      <div class="practical-item">
+        <div class="practical-item-title">🥗 Food Safety</div>
+        <div class="practical-item-text">In Antigua & Atitlán, tourist restaurants use filtered water for ice and cooking. Stick to bottled water. No tap water.</div>
+      </div>
+      <div class="practical-item">
+        <div class="practical-item-title">👟 What to Pack</div>
+        <div class="practical-item-text">Comfortable walking shoes (cobblestones!), swimwear for the lake, light layers for evenings, bug spray, sunscreen, cash.</div>
+      </div>
+      <div class="practical-item">
+        <div class="practical-item-title">🗣️ Language Tips</div>
+        <div class="practical-item-text">Spanish is official. A warm "buenos días" goes a long way. Locals are incredibly friendly and welcoming to families.</div>
+      </div>
+      <div class="practical-item">
+        <div class="practical-item-title">🔒 Safety</div>
+        <div class="practical-item-text">Antigua & Atitlán are generally safe for tourists. Avoid night travel, use reputable transportation. Stick to well-traveled areas.</div>
+      </div>
+      <div class="practical-item">
+        <div class="practical-item-title">📱 Book Ahead</div>
+        <div class="practical-item-text">Pre-book: ChocoMuseo workshop, private shuttles, cooking class, and Iximché tour. Casa del Mundo fills up — confirm your reservation!</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  🌋 Jain Family Guatemala Itinerary · March 26 – April 4, 2026 &nbsp;·&nbsp; Have an incredible adventure, Ripul, Nimisha, Rohan & Niam! 🌿
+</div>
+
+<script>
+  function toggleDay(header) {
+    const card = header.parentElement;
+    card.classList.toggle('open');
+  }
+
+  // Stagger animation
+  document.querySelectorAll('.phase').forEach((el, i) => {
+    el.style.animationDelay = (i * 0.1) + 's';
+  });
+</script>
+
+</body>
+</html>
